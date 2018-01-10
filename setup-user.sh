@@ -7,6 +7,10 @@ SSH_ENCRYPTION_ALGORITHM=$4
 
 new_user_home_dir=$(eval echo "~$USER_NAME")
 
+apt_switches="-qq -o=Dpkg::Use-Pty=0" # Silence all output except errors.
+apt_update_cmd="apt-get $apt_switches update"
+apt_install_cmd="apt-get $apt_switches install"
+
 if [ -z ${new_user_home_dir:x} ]; then
   echo "Failed to find home directory for user: $USER_NAME."
   exit 1
