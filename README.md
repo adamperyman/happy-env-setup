@@ -6,13 +6,13 @@ A collection of scripts to make setting up dev environments a lot easier.
 
 # What?
 
-### Phase 1 `setup.sh`
+#### Phase 1
 * Prompts for new user name, pass, email, and SSH key encryption algorithm (Ed25519 or RSA).
 * Attempts to create SSH keys for root user **if `/root/.ssh` directory doesn't exist**.
 * Runs `apt-get update` and installs several packages required for the script.
 * Creates a new user from the data provided initially, assigns user to sudo group.
 
-### Phase 2 `user-setup.sh`
+#### Phase 2
 * Installs packages required for docker.
 * Installs docker-ce.
   * Adds docker GPG key.
