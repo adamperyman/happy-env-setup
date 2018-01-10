@@ -108,4 +108,4 @@ else
   exit 1
 fi
 
-su $USER_NAME -c "bash setup-user.sh $USER_NAME $USER_PASS $USER_EMAIL $SSH_ENCRYPTION_ALGORITHM"
+su $USER_NAME -c "bash user-setup.sh $USER_NAME $USER_PASS $USER_EMAIL $SSH_ENCRYPTION_ALGORITHM"

@@ -127,15 +127,15 @@ sudo $apt_update_cmd && sudo $apt_install_cmd vim-gnome
 if sudo git clone --depth=1 https://github.com/amix/vimrc.git $new_user_home_dir/.vim_runtime; then
   bash $new_user_home_dir/.vim_runtime/install_awesome_vimrc.sh
 
+  # Set proper permissions, otherwise file/dir owners will be root.
+  sudo chown -R $USER_NAME $new_user_home_dir/.vim_runtime/
+
   # AP's custom settings.
   mkdir -p $new_user_home_dir/dev
   sudo git clone https://github.com/x0bile/vim-settings.git $new_user_home_dir/dev/vim-settings
 
   # Sub-shell to create new working dir for setup.sh.
   (cd $new_user_home_dir/dev/vim-settings ; sudo -S sh $new_user_home_dir/dev/vim-settings/setup.sh)
-
-  # Set proper permissions, otherwise file/dir owners will be root.
-  sudo chown -R plex $new_user_home_dir/.vim_runtime/
 else
   echo "Failed to get Amix's .vimrc, didn't setup AP's custom settings."
 fi
