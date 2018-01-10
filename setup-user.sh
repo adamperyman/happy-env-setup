@@ -133,6 +133,9 @@ if sudo git clone --depth=1 https://github.com/amix/vimrc.git $new_user_home_dir
 
   # Sub-shell to create new working dir for setup.sh.
   (cd $new_user_home_dir/dev/vim-settings ; sudo -S sh $new_user_home_dir/dev/vim-settings/setup.sh)
+
+  # Set proper permissions, otherwise file/dir owners will be root.
+  sudo chown -R plex $new_user_home_dir/.vim_runtime/
 else
   echo "Failed to get Amix's .vimrc, didn't setup AP's custom settings."
 fi
